@@ -29,6 +29,31 @@ Configure o vhost
 </VirtualHost>
 
 
+systemctl restart httpd 
+
+Clone projeto do github:
+
+git clone https://github.com/fabiocarlosvasconcelos/teste-infotv.git
+
+Instalação do laravel:
+
+No diretório do projeto execute composer.phar install
+
+renomeie o arquivo .env.example para .env
+
+php artisan key:generate
+
+Permissões:
+
+chown apache. teste-infotv
+chmod 775 teste-infotv -R
+
+
+
+
+
+
+
 
 
 
