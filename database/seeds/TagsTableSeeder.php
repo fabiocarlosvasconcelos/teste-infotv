@@ -16,10 +16,9 @@ class TagsTableSeeder extends Seeder
     public function run()
     {
         
-        Tag::create([
-            'name' => Str::random(10),
-            'movie_id' => Movie::all()->random()->id,
-        ]);
+        factory(Tag::class, 10)->create()->each(function ($tag) {
+            $tag->save();
+        });
 
     }
 }

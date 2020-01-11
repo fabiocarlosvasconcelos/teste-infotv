@@ -15,11 +15,9 @@ class MoviesTableSeeder extends Seeder
     public function run()
     {
         
-        Movie::create([
-            'name' => Str::random(10),
-            'file' => Str::random(20).'.mkv',
-            'file_size' =>  rand(1, 5000)
-        ]);
+        factory(Movie::class, 10)->create()->each(function ($movie) {
+            $movie->save();
+        });
         
     }
 }

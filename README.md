@@ -5,6 +5,7 @@ Instalação do servidor WEB (CentOs 7)
 
 Instale o Apache
 Instale o PHP >= 7.1.3
+Inslate o postres >= 11
 
 Instale os seguintes módulos requeridos pelo Laravel.
 
@@ -47,6 +48,14 @@ Permissões:
 
 chown apache. teste-infotv
 chmod 775 teste-infotv -R
+
+Criando a estrutura de dados
+
+php artisan migrate
+
+Populando o banco
+
+php artisan db:seed
 
 
 
