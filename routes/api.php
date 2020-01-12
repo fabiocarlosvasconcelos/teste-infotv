@@ -17,5 +17,14 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => ['verify.jwt'],'prefix' => 'v1'], function () {
 
     Route::resource('movies', 'MoviesController', []);
+
+});
+
+Route::group(['prefix' => 'v1'], function () {
+
+    //apenas store pode ser um método publico (cadastro do usuário)
+    Route::resource('users', 'UserController')->only([
+        'store'
+    ]);
     
 });
