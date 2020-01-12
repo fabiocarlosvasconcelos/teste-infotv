@@ -37,7 +37,7 @@ class MoviesController extends Controller
         //validação do parâmetros
         $this->validate($request, [
             'name'=>'required',
-            'file'=>'required'
+            'file'=>'required|max:5000'
         ]);
 
         //nome do filme
