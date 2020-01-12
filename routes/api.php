@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| Aqui são registradas as rotas da API do aplicativo. Estes
+| rotas são carregadas pelo RouteServiceProvider dentro de um grupo que
+| é designado ao grupo de middleware "api". 
+| Utilize o comando php artisan route:list para ver todas as todas do aplicativo
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['verify.jwt'],'prefix' => 'v1'], function () {
+
+    Route::resource('movies', 'MoviesController', []);
+    
 });
