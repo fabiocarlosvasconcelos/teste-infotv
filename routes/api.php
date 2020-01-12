@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => ['verify.jwt'],'prefix' => 'v1'], function () {
 
-    Route::resource('movies', 'MoviesController', []);
+    Route::resource('movies', 'MoviesController');
+    Route::resource('tags', 'TagController');
 
 });
 
