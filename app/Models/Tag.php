@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     /**
-     * Atributos que são enviados para o banco
+     * Atributos que são enviados para o banco, as colunas não definidas aqui,
+     * são ignoradas
      *
      * @var array
      */
