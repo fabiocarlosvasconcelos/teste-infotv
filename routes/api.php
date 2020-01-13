@@ -27,5 +27,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::resource('users', 'UserController')->only([
         'store'
     ]);
+
+    Route::post('token', 'AuthController@token');
     
 });
