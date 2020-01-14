@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Auth\Jwt;
 use Closure;
 
 class VerifyJwtToken
@@ -18,10 +19,15 @@ class VerifyJwtToken
      
         $bearerToken = $request->bearerToken();
 
-        if($bearerToken != 'teste') {
+        $jwt = new Jwt();
+
+        $valid = $jwt->check($bearerToken);
+
+        if(!$valid) {
             return response()->json('Unauthorized', 401);
         }
 
         return $next($request);
+        
     }
 }

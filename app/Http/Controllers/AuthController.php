@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Auth\Jwt;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,8 +11,8 @@ class AuthController extends Controller
 {
    
     /**
-     * Método responável pela validação do usuário 
-     * e criação do token JWT
+     * Método responável pela criação do JWT para autenticação
+     * nas endpoints da api 
      *
      * @return \Illuminate\Http\Response
      */
@@ -39,7 +40,12 @@ class AuthController extends Controller
 
             //compara a senha passada por parametro com o hash
             if(Hash::check($password, $hash)){
-                return response()->json(['data'=> ["status"=>"success"]]);
+
+                $jwt = new Jwt();
+
+                $token = $jwt->getToken();//token
+
+                return response()->json(['data'=> ["status"=>"success", "token" => $token]]);
             } 
 
         }
