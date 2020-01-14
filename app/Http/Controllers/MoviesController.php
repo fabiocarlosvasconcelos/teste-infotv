@@ -73,6 +73,11 @@ class MoviesController extends Controller
      */
     public function show(Movie $movie)
     {
+        
+        $tags = Tag::where('movie_id', 1)->get()->all();
+
+        $movie->tags = $tags;
+        
         return response()->json(['data'=> $movie]);
     }
 
