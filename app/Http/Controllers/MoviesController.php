@@ -148,6 +148,10 @@ class MoviesController extends Controller
      */
     public function destroy(Movie $movie)
     {
+        
+        $movie->delete();
+
         return response()->json(['data'=> $movie]);
+        
     }
 }
