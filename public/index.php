@@ -55,6 +55,12 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
+/*headers para permitir cross origin*/
+//@todo criar um middleware para setar estes headers
+$response->header('Access-Control-Allow-Origin', '*');
+$response->header('Access-Control-Allow-Methods', '*');
+$response->header('Access-Control-Allow-Headers', '*');
+/***********************************/
 $response->send();
 
 $kernel->terminate($request, $response);
