@@ -37,7 +37,7 @@ class MoviesController extends Controller
         //validação do parâmetros
         $this->validate($request, [
             'name'=>'required',
-            'file'=>'required|max:5000'
+            'file'=>'required|max:5000' //@todo a validação de padrão para videos não funcionou (|mimes:avi,wmv), pesquisar uma alternativa 
         ]);
 
         //nome do filme
@@ -77,7 +77,7 @@ class MoviesController extends Controller
         $tags = Tag::where('movie_id', 1)->get()->all();
 
         $movie->tags = $tags;
-        
+
         return response()->json(['data'=> $movie]);
     }
 
