@@ -9,14 +9,17 @@ Instalar o postres >= 11
 
 Instale os seguintes módulos requeridos pelo Laravel.
 
-BCMath PHP Extension
-Ctype PHP Extension
-JSON PHP Extension
-Mbstring PHP Extension
-OpenSSL PHP Extension
-PDO PHP Extension
-Tokenizer PHP Extension
-XML PHP Extension
+*BCMath PHP Extension
+*Ctype PHP Extension
+*JSON PHP Extension
+*Mbstring PHP Extension
+*OpenSSL PHP Extension
+*PDO PHP Extension
+*Tokenizer PHP Extension
+*XML PHP Extension
+
+Como instalar as dependências os laravel?
+https://laravel.com/docs/6.x
 
 Configure o virtual host 
 ```
