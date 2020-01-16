@@ -89,7 +89,7 @@ Popule o banco de dados. Casa execução insere 10 itens por tabela.
 php artisan db:seed
 ```
 
-Doawnload da coleção no Postman para testes da API
+Download da coleção no Postman para testes da API
 
 https://drive.google.com/file/d/1faQeieA_kShd7_iGtU8jXvwM5ohj1K0H/view?usp=sharing
 
