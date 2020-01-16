@@ -1,11 +1,11 @@
 # teste-infotv
 Teste InfoTV
 
-Instalação do servidor WEB (CentOs 7)
+Instalação do servidor WEB (Foi utilizado CentOs 7)
 
-Instale o Apache
-Instale o PHP >= 7.1.3
-Inslate o postres >= 11
+Inatalar o Apache
+instalar o PHP >= 7.1.3
+Instalar o postres >= 11
 
 Instale os seguintes módulos requeridos pelo Laravel.
 
@@ -18,42 +18,60 @@ PDO PHP Extension
 Tokenizer PHP Extension
 XML PHP Extension
 
-Configure o vhost
+Configure o virtual host 
 
 /etc/httpd/conf.d/vhost.conf
 
+```
 <VirtualHost *:80>
     ServerName app.test.com.br
     DocumentRoot /var/www/html/teste-infotv/public
     ErrorLog logs/app-error_log
     CustomLog logs/app-access_log "%h %l %u %t \"%r\" %>s %b"
 </VirtualHost>
+```
 
+Reinicie o httpd
 
 systemctl restart httpd 
 
-Clone projeto do github:
+Clonar o projeto do github em /var/www/html/ (ou seu diretório de preferência):
 
 git clone https://github.com/fabiocarlosvasconcelos/teste-infotv.git
 
-Instalação do laravel:
+Instalação do laravel e dependências:
 
 No diretório do projeto execute composer.phar install
 
-renomeie o arquivo .env.example para .env
+Renomeie o arquivo .env.example para .env
 
+Gere uma key para o projeto
 php artisan key:generate
 
-Permissões:
+Definas as permissões:
 
 chown apache. teste-infotv
 chmod 775 teste-infotv -R
 
-Criando a estrutura de dados
+Crie uma database no postgres
+create database teste
+
+Configure os dados do posgres no .env
+
+```
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=teste
+DB_USERNAME=postgres
+DB_PASSWORD=
+```
+
+Crie a estrutura de dados
 
 php artisan migrate
 
-Populando o banco
+Popule o banco de dados. Casa execução insere 10 itens por tabela.
 
 php artisan db:seed
 
