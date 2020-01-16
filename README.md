@@ -19,8 +19,9 @@ Tokenizer PHP Extension
 XML PHP Extension
 
 Configure o virtual host 
-
+```
 /etc/httpd/conf.d/vhost.conf
+```
 
 ```
 <VirtualHost *:80>
@@ -32,30 +33,37 @@ Configure o virtual host
 ```
 
 Reinicie o httpd
-
+```
 systemctl restart httpd 
+```
 
 Clonar o projeto do github em /var/www/html/ (ou seu diretório de preferência):
-
+```
 git clone https://github.com/fabiocarlosvasconcelos/teste-infotv.git
+```
 
-Instalação do laravel e dependências:
-
-No diretório do projeto execute composer.phar install
+Instalação do laravel e dependências: No diretório do projeto execute
+```
+ composer.phar install
+```
 
 Renomeie o arquivo .env.example para .env
 
 Gere uma key para o projeto
+```
 php artisan key:generate
+```
 
 Definas as permissões:
-
+```
 chown apache. teste-infotv
 chmod 775 teste-infotv -R
+```
 
 Crie uma database no postgres
+```
 create database teste
-
+```
 Configure os dados do posgres no .env
 
 ```
@@ -68,12 +76,15 @@ DB_PASSWORD=
 ```
 
 Crie a estrutura de dados
-
+```
 php artisan migrate
+```
 
 Popule o banco de dados. Casa execução insere 10 itens por tabela.
 
+```
 php artisan db:seed
+```
 
 
 
