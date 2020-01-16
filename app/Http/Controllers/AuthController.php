@@ -37,6 +37,7 @@ class AuthController extends Controller
 
             //hash da senha do usuário no banco de dados
             $hash = $user->password;
+            $userName =$user->name;
 
             //compara a senha passada por parametro com o hash
             if(Hash::check($password, $hash)){
@@ -45,7 +46,7 @@ class AuthController extends Controller
 
                 $token = $jwt->getToken();//token
 
-                return response()->json(['data'=> ["status"=>"success", "token" => $token]]);
+                return response()->json(['data'=> ["status"=>"success", "user"=>$userName, "token" => $token]]);
             } 
 
         }

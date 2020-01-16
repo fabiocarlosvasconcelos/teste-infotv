@@ -18,7 +18,7 @@ class MoviesController extends Controller
 
         $data = $request->all();
 
-        $order = $data['order'] == 'DESC' ? 'DESC' : 'ASC';
+        $order = isset($data['order']) && $data['order'] == 'DESC' ? 'DESC' : 'ASC';
     
         $movies = Movie::orderBy('name', $order)->get()->all();
         return response()->json(['data'=> $movies]); 

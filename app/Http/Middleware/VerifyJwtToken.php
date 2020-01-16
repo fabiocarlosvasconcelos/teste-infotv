@@ -24,7 +24,7 @@ class VerifyJwtToken
         $valid = $jwt->check($bearerToken);
 
         if(!$valid) {
-            return response()->json('Unauthorized', 401);
+            return response()->json(['error'=>'Unauthorized'], 401);
         }
 
         return $next($request);
