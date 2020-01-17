@@ -93,7 +93,11 @@ Download da coleção no Postman para testes da API
 
 https://drive.google.com/file/d/1faQeieA_kShd7_iGtU8jXvwM5ohj1K0H/view?usp=sharing
 
+Para testar as APis no Postman
 
+1. Crie usuário utilizando a api Cria usuário
+2. Crie um token de autenticação utilizando a API Token
+3. Configura este token na header de autenticação da colection
 
 
 
